@@ -9,13 +9,13 @@ public class TitleBasicLoader {
 
     public static ArrayList<TitleBasic> load(String filePath) throws IOException {
         ArrayList<TitleBasic> list = new ArrayList<>();
-
+        int qtd = 0;
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             String header = reader.readLine();
 
             String line;
             int lineNumber = 1;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null && qtd != 10000) {
                 lineNumber++;
                 String[] cols = parseTSVLine(line);
                 if (cols.length < 9) continue;
@@ -32,6 +32,7 @@ public class TitleBasicLoader {
 
                 list.add(new TitleBasic(tconst, titleType, primaryTitle, originalTitle,
                         isAdult, startYear, endYear, runtimeMinutes, genres));
+                qtd++;
             }
         }
 

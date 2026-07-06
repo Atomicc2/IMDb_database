@@ -2,7 +2,10 @@ import java.util.ArrayList;
 
 public class BubbleSort {
 
+    private int movimentacoes = 0;
+
     public void bubbleSort(ArrayList<TitleBasic> titles) {
+        movimentacoes = 0;
         int out, in;
 
         for (out = titles.size() - 1; out >= 1; out--) {
@@ -26,5 +29,10 @@ public class BubbleSort {
         TitleBasic temp = titles.get(i);
         titles.set(i, titles.get(j));
         titles.set(j, temp);
+        movimentacoes++;
+    }
+
+    public int getMovimentacoes() {
+        return movimentacoes;
     }
  }

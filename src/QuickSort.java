@@ -2,7 +2,10 @@ import java.util.ArrayList;
 
 public class QuickSort {
 
+    private int movimentacoes = 0;
+
     public void quickSort(ArrayList<TitleBasic> titles) {
+        movimentacoes = 0;
         recQuickSort(titles, 0, titles.size() - 1);
     }
 
@@ -63,5 +66,10 @@ public class QuickSort {
         TitleBasic temp = titles.get(i);
         titles.set(i, titles.get(j));
         titles.set(j, temp);
+        movimentacoes++;
+    }
+
+    public int getMovimentacoes() {
+        return movimentacoes;
     }
 }

@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 
 public class SelectionSort {
+	private int movimentacoes = 0;
+
 	public void selectionSort(ArrayList<TitleBasic> titles) {
+		movimentacoes = 0;
 		int in, out, min;
 		
 		for(out = 0; out < titles.size() - 1; out++) {
@@ -27,5 +30,10 @@ public class SelectionSort {
         TitleBasic temp = titles.get(i);
         titles.set(i, titles.get(j));
         titles.set(j, temp);
+        movimentacoes++;
+    }
+
+    public int getMovimentacoes() {
+        return movimentacoes;
     }
 }

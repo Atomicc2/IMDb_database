@@ -1,8 +1,11 @@
 import java.util.ArrayList;
 
 public class MergeSort {
+	private int movimentacoes = 0;
+
 	public void mergeSort(ArrayList<TitleBasic> titles) {
-		 ArrayList<TitleBasic> workSpace = new ArrayList<>();
+		movimentacoes = 0;
+		ArrayList<TitleBasic> workSpace = new ArrayList<>();
 
 	        for (int i = 0; i < titles.size(); i++) {
 	            workSpace.add(null);
@@ -46,19 +49,32 @@ public class MergeSort {
                 ano2 = Integer.MAX_VALUE;
             
          // começa a comparação
-            if (ano1 < ano2)
+            if (ano1 < ano2) {
                 workSpace.set(j++, titles.get(lowPtr++));
-            else
+                movimentacoes++;
+            } else {
                 workSpace.set(j++, titles.get(highPtr++));
+                movimentacoes++;
+            }
 		}
 		
-		while(lowPtr <= mid)
+		while(lowPtr <= mid) {
 			workSpace.set(j++, titles.get(lowPtr++));
+			movimentacoes++;
+		}
 		
-		while(highPtr <= upperBound)
+		while(highPtr <= upperBound) {
 			workSpace.set(j++, titles.get(highPtr++));
+			movimentacoes++;
+		}
 		
-		for(j = 0; j < n; j++)
+		for(j = 0; j < n; j++) {
 			titles.set(lowerBound + j,  workSpace.get(j));
+			movimentacoes++;
+		}
+	}
+
+	public int getMovimentacoes() {
+		return movimentacoes;
 	}
 }

@@ -1,7 +1,10 @@
 import java.util.ArrayList;
 
 public class InsertionSort {
+	private int movimentacoes = 0;
+
 	public void insertSort(ArrayList<TitleBasic> titles) {
+		movimentacoes = 0;
 		int in, out;
 		
 		for(out = 1; out < titles.size(); out++) {
@@ -18,6 +21,7 @@ public class InsertionSort {
 				}
 				if (anoAnterior >= anoTemp) {
 			        titles.set(in, titles.get(in - 1));
+			        movimentacoes++;
 			        in--;
 			    } else {
 			    	  break;
@@ -25,7 +29,12 @@ public class InsertionSort {
 			}
 			
 			titles.set(in, temp);
+			movimentacoes++;
 		
 		}
+	}
+
+	public int getMovimentacoes() {
+		return movimentacoes;
 	}
 }

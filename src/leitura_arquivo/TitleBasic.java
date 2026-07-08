@@ -29,6 +29,7 @@ public class TitleBasic {
     }
 
     public String getTconst() { return tconst; }
+    public int getTconstId() { return Integer.parseInt(tconst.substring(2)); }
     public String getTitleType() { return titleType; }
     public String getPrimaryTitle() { return primaryTitle; }
     public String getOriginalTitle() { return originalTitle; }

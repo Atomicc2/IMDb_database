@@ -1,11 +1,12 @@
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Queue;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         try {                                                                                       // nao tem simple
-            ArrayList<TitleBasic> dadosOriginais = TitleBasicLoader.load("DatabaseTeste/title.basics.tsv");
+            ArrayList<TitleBasic> dadosOriginais = TitleBasicLoader.load("DatabaseTeste/title.basics.sample.tsv");
             System.out.println("Registros carregados: " + dadosOriginais.size());
 
             Scanner scanner = new Scanner(System.in);

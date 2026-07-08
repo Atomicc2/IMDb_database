@@ -1,3 +1,5 @@
+package leitura_arquivo;
+
 import java.util.Collections;
 import java.util.List;
 
@@ -38,7 +40,7 @@ public class TitleBasic {
 
     @Override
     public String toString() {
-        return "TitleBasic{" +
+        return "leitura_arquivo.TitleBasic{" +
                 "tconst='" + tconst + '\'' +
                 ", titleType='" + titleType + '\'' +
                 ", primaryTitle='" + primaryTitle + '\'' +

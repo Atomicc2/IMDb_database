@@ -1,3 +1,8 @@
+package estrutura_arvore;
+
+import leitura_arquivo.*;
+
+
 public class TNodoAVL {
 
     public TitleBasic item;

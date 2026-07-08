@@ -1,4 +1,7 @@
+package estrutura_arvore;
+
 import java.util.ArrayList;
+import leitura_arquivo.*;
 
 public class ArvoreAVL {
 

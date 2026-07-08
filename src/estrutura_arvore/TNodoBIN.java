@@ -1,3 +1,7 @@
+package estrutura_arvore;
+
+import leitura_arquivo.*;
+
 public class TNodoBIN {
     TNodoBIN esq;
     TitleBasic item;

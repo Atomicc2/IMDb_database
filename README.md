@@ -8,8 +8,8 @@ Trabalho acadêmico da matéria de Estrutura de Dados. O projeto carrega e manip
 IMDb_database/
 ├── src/                          # Código-fonte Java
 │   ├── Main.java                 # Classe principal (exemplo de uso)
-│   ├── TitleBasic.java           # Representa uma linha do title.basics.tsv
-│   └── TitleBasicLoader.java     # Loader que retorna ArrayList<TitleBasic>
+│   ├── leitura_arquivo.TitleBasic.java           # Representa uma linha do title.basics.tsv
+│   └── leitura_arquivo.TitleBasicLoader.java     # Loader que retorna ArrayList<leitura_arquivo.TitleBasic>
 │
 ├── DatabaseTeste/                # Amostras pequenas para testes
 │   └── title.basics.sample.tsv   # 1000 linhas do title.basics.tsv
@@ -21,7 +21,7 @@ IMDb_database/
 
 ## Observações
 
-- A classe `TitleBasic` trata `\N` (valor nulo do TSV) como `null` no Java.
+- A classe `leitura_arquivo.TitleBasic` trata `\N` (valor nulo do TSV) como `null` no Java.
 - O arquivo de dados usa tabulação (`\t`) como separador.
 
 ## Próximos Passos (sugestão)

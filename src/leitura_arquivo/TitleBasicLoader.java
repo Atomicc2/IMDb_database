@@ -1,3 +1,5 @@
+package leitura_arquivo;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;

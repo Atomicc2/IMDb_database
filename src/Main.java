@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        try {
-            ArrayList<TitleBasic> dadosOriginais = TitleBasicLoader.load("DatabaseTeste/title.basics.sample.tsv");
+        try {                                                                                       // nao tem simple
+            ArrayList<TitleBasic> dadosOriginais = TitleBasicLoader.load("DatabaseTeste/title.basics.tsv");
             System.out.println("Registros carregados: " + dadosOriginais.size());
 
             Scanner scanner = new Scanner(System.in);
@@ -21,7 +21,9 @@ public class Main {
                     case 3 -> testarMergeSort(dadosOriginais);
                     case 4 -> testarQuickSort(dadosOriginais);
                     case 5 -> testarSelectionSort(dadosOriginais);
-                    case 6 -> executarTodos(dadosOriginais);
+                    case 6 -> testarArvoreBinaria(dadosOriginais);
+                    case 7 -> testarArvoreAVL(dadosOriginais);
+                    case 8 -> executarTodos(dadosOriginais);
                     case 0 -> System.out.println("Encerrando...");
                     default -> System.out.println("Opcao invalida!");
                 }
@@ -42,7 +44,9 @@ public class Main {
         System.out.println("3. MergeSort");
         System.out.println("4. QuickSort");
         System.out.println("5. SelectionSort");
-        System.out.println("6. Executar TODOS (comparativo)");
+        System.out.println("6. ArvoreBinaria (BST)");
+        System.out.println("7. ArvoreAVL");
+        System.out.println("8. Executar TODOS (comparativo)");
         System.out.println("0. Sair");
         System.out.println("==========================");
         System.out.print("Escolha: ");
@@ -108,8 +112,29 @@ public class Main {
         exibirPrimeiros(copia);
     }
 
+    private static void testarArvoreBinaria(ArrayList<TitleBasic> original) {
+        ArvoreBinaria arvore = new ArvoreBinaria();
+        long inicio = System.currentTimeMillis();
+        arvore.inserirTodos(original);
+        long fim = System.currentTimeMillis();
+        System.out.println("\n--- ArvoreBinaria (BST) ---");
+        System.out.println("Tempo de insercao: " + (fim - inicio) + " ms");
+        System.out.println("Altura da arvore: " + arvore.altura());
+    }
+
+    private static void testarArvoreAVL(ArrayList<TitleBasic> original) {
+        ArvoreAVL arvore = new ArvoreAVL();
+        long inicio = System.currentTimeMillis();
+        arvore.inserirTodos(original);
+        long fim = System.currentTimeMillis();
+        System.out.println("\n--- ArvoreAVL ---");
+        System.out.println("Tempo de insercao: " + (fim - inicio) + " ms");
+        System.out.println("Altura da arvore: " + arvore.altura());
+        System.out.println("Fator de balanceamento da raiz: " + arvore.fatorBalanceamento());
+    }
+
     private static void executarTodos(ArrayList<TitleBasic> original) {
-        System.out.println("\n--- Comparativo ---");
+        System.out.println("\n--- Comparativo: Algoritmos de Ordenacao ---");
         System.out.printf("%-15s | %10s | %s\n", "Algoritmo", "Tempo (ms)", "Movimentacoes");
         System.out.println("----------------------------------------");
 
@@ -142,6 +167,20 @@ public class Main {
         long t5 = System.currentTimeMillis();
         s5.selectionSort(copia5);
         System.out.printf("%-15s | %10d | %d\n", "SelectionSort", System.currentTimeMillis() - t5, s5.getMovimentacoes());
+
+        System.out.println("\n--- Comparativo: Arvores ---");
+        System.out.printf("%-15s | %10s | %s\n", "Estrutura", "Tempo (ms)", "Altura");
+        System.out.println("----------------------------------------");
+
+        ArvoreBinaria bst = new ArvoreBinaria();
+        long t6 = System.currentTimeMillis();
+        bst.inserirTodos(original);
+        System.out.printf("%-15s | %10d | %d\n", "ArvoreBinaria", System.currentTimeMillis() - t6, bst.altura());
+
+        ArvoreAVL avl = new ArvoreAVL();
+        long t7 = System.currentTimeMillis();
+        avl.inserirTodos(original);
+        System.out.printf("%-15s | %10d | %d\n", "ArvoreAVL", System.currentTimeMillis() - t7, avl.altura());
     }
 
     private static void exibirPrimeiros(ArrayList<TitleBasic> titulos) {

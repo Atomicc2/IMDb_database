@@ -15,7 +15,7 @@ public class TitleBasicLoader {
 
             String line;
             int lineNumber = 1;
-            while ((line = reader.readLine()) != null) {
+            while ((line = reader.readLine()) != null && list.size()!= 100000) {
                 lineNumber++;
                 String[] cols = parseTSVLine(line);
                 if (cols.length < 9) continue;
@@ -32,6 +32,7 @@ public class TitleBasicLoader {
 
                 list.add(new TitleBasic(tconst, titleType, primaryTitle, originalTitle,
                         isAdult, startYear, endYear, runtimeMinutes, genres));
+
             }
         }
 
